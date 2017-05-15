@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "app">
   <head>
     <meta charset="utf-8">
     <title>Angular Drill</title>
   </head>
   <body>
+    <h3>Simple-Interaction</h3>
+    <name-display></name-display>
+
+    <!-- START SCRIPTING -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+		<script type="text/javascript">
+      angular.module("app", [])
+      .component("nameDisplay", {
+        controller: function() {
+          const vm = this
+          vm.firstname = ""
+          vm.nickname = ""
+          vm.lastname = ""
+          vm.updatefirst = function(firstname, lastname, nickname) {
+            console.log(firstname);
+            vm.firstname = firstname
+            vm.nickname = '"' + nickname + '"'
+            vm.lastname = lastname
+          }
+          // vm.updatelast = function(lastname) {
+          //   console.log(lastname);
+          //   vm.lastname = lastname
+          // }
+        },
+        template: `
+        <h3>Enter your name:</h3>
+
+
+        <p><input placeholder="First Name" ng-model="firstname"/></p>
+        <p><input placeholder="Nickname" ng-model="nickname"/></p>
+        <p><input placeholder="Last Name"ng-model="lastname"/></p>
+        <input type="submit" value="submit" ng-click="$ctrl.updatefirst(firstname, lastname, nickname)">
+
+        <p>{{$ctrl.firstname}} {{$ctrl.nickname}} {{$ctrl.lastname}}</p>
+
+
+
+
+        `
+      })
+
+
+    </script>
+
 
   </body>
 </html>
