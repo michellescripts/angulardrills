@@ -24,31 +24,16 @@
             vm.nickname = '"' + nickname + '"'
             vm.lastname = lastname
           }
-          // vm.updatelast = function(lastname) {
-          //   console.log(lastname);
-          //   vm.lastname = lastname
-          // }
         },
         template: `
         <h3>Enter your name:</h3>
-
-
         <p><input placeholder="First Name" ng-model="firstname"/></p>
         <p><input placeholder="Nickname" ng-model="nickname"/></p>
         <p><input placeholder="Last Name"ng-model="lastname"/></p>
         <input type="submit" value="submit" ng-click="$ctrl.updatefirst(firstname, lastname, nickname)">
-
         <p>{{$ctrl.firstname}} {{$ctrl.nickname}} {{$ctrl.lastname}}</p>
-
-
-
-
         `
       })
-
-
     </script>
-
-
   </body>
 </html>
