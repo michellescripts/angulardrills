@@ -4,7 +4,9 @@ const knex = require('../db')
 
 router.get('/', (req, res, next) => {
   knex('expenses')
-    .then(expenses => res.json(expenses))
+    .then(expenses => {
+      res.json(expenses)
+    })
     .catch(err => next(err))
 })
 
@@ -19,7 +21,8 @@ router.post('/', (req, res, next) => {
 router.patch('/:id', (req, res, next) => {
   knex('expenses')
     .update({category: req.body.category, amount: req.body.amount})
-    .where({id: req.params.id})
+    // .where({id: req.params.id})
+    .where({id: req.body.id})
     .returning('*')
     .then(expenses => res.json(expenses[0]))
     .catch(err => next(err))

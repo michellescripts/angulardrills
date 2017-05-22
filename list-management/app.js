@@ -5,7 +5,6 @@
       controller: function () {
         const vm = this
         // vm.$onInit = function () {
-        vm.items = []
         vm.items = [
                 {name: 'Noosa', quantity: 4},
                 {name: 'Almond Milk', quantity: 2}
